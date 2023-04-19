@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="enigma_M4/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="enigma_M4/layout/menu::menuStyle"></style>
+<style th:include="enigma_M4/layout/subMenu::subMenuStyle"></style>
+<style>
+input {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div th:insert="enigma_M4/layout/header::header"></div>
+	</header>
+	<div class="subMonitor"
+		th:insert="enigma_M4/layout/subMonitor::subMonitor"></div>
+	<div class="menu" th:insert="enigma_M4/layout/menu::menu"></div>
+	<div class="main">
+		<div class="titleLbl">
+			<span class="title">プラグボード設定</span>
+		</div>
+		<font color="red"><th:block class="error" th:text="${Msg}">
+			</th:block> </font>
+		<div class="pbTable">
+			<form method="post" action="/enigma_M4/pbSetting"
+				th:object="${pbSet}">
+				<table>
+					<tbody>
+						<tr>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet0Value}" name="pbSet0" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet1Value}" name="pbSet1" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet2Value}" name="pbSet2" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet3Value}" name="pbSet3" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet4Value}" name="pbSet4" minlength="2"
+								maxlength="2" size="4"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet5Value}" name="pbSet5" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet6Value}" name="pbSet6" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet7Value}" name="pbSet7" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet8Value}" name="pbSet8" minlength="2"
+								maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedPbSet9Value}" name="pbSet9" minlength="2"
+								maxlength="2" size="4"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="submit">
+					<input type="submit" class="submitBtn" value="変更を適用する" />
+				</div>
+			</form>
+			<div class="randomBtn">
+				<a href="/enigma_M4/pbSetting/random" class="btn">ランダム決定</a>
+			</div>
+		</div>
+	</div>
+	<div class="subMenu" th:insert="enigma_M4/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="enigma_M4/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

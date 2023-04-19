@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>mainMonitor</title>
+</head>
+<body>
+	<div th:fragment="mainMonitor">
+	<font color="red"><th:block class ="error" th:text="${Msg}">
+	</th:block>
+	</font>
+		<form method="post" action="/enigma_I/doEnigma" th:object="${iom}">
+			<div>
+				<textarea class="inputArea" name="input" rows="5" cols="60"
+					placeholder="ここに入力してください" th:value="${iom.input}"></textarea>
+			</div>
+			<div>
+				<div class="submit">
+					<input type="submit" class="submitBtn" value="実行" />
+				</div>
+			</div>
+			<div>
+				<textarea class="outputArea" name="output" rows="5" cols="60"
+					readonly th:text="${iom.output}"></textarea>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

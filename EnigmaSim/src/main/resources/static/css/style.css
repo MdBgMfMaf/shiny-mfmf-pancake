@@ -1,0 +1,125 @@
+@import url(sanitize.css);
+
+body {
+	font-family: serif;
+	font-size: 14px;
+	color:darkcyan;
+	border: 1px solid darkcyan;
+	border-radius: 6px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	max-width: 700px;
+}
+*{
+	font-family: inherit;
+	font-size: inherit;
+}
+.btn {
+	text-decoration: none;
+	background-color:azure;
+	color: darkcyan;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	border-radius: 6px;
+	border: solid 1px darkcyan;
+	}
+
+.submitBtn {
+	text-decoration: none;
+	background-color:azure;
+	color: darkcyan;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	border-radius: 6px;
+	border: solid 1px darkcyan;
+}
+submitForm{
+	text-decoration: none;
+	background-color:azure;
+	color: darkcyan;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	border-radius: 6px;
+	border: solid 1px darkcyan;
+}
+.submit{
+	margin-top: 10px;
+}
+.randomBtn {
+	margin-top: 10px;
+}
+.titleLbl{
+	margin-bottom: 10px;
+}
+.title{
+	background-color: white;
+	border: 4px double lightsteelblue;
+	border-radius: 3px;
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+}
+header {
+	color:darkcyan;
+	border-radius: 6px;
+	border: 4px double lightsteelblue;
+	height: 25px;
+	margin:5px;
+	margin-bottom: 0px;
+	background-color:aliceblue;
+}
+.subMonitor {
+	padding-top: 20px;
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid darkcyan;
+	flex: 1;
+	margin:5px;
+	margin-bottom: 0px;
+	padding-bottom: 10px;
+	background-color: ghostwhite;
+}
+.menu {
+	border-radius: 6px;
+	border: 1px solid darkcyan;
+    margin:5px;
+    margin-bottom: 0px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	background-color: ghostwhite;
+}
+.main {
+	border-radius: 6px;
+	border: 1px solid darkcyan;
+	text-align: center;
+	flex: 1;
+	height: 30%;
+	margin:5px;
+    margin-bottom: 0px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	background-color: ghostwhite;
+}
+.subMenu {
+	border-radius: 6px;
+	border: 1px solid darkcyan;
+	margin:5px;
+    margin-bottom: 0px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	background-color: ghostwhite;
+	flex: 1;
+}
+footer {
+	border-radius: 6px;
+	border: 1px solid darkcyan;
+	margin:5px;
+	height: 21px;
+	text-align:right;
+	background-color: ghostwhite;
+	}

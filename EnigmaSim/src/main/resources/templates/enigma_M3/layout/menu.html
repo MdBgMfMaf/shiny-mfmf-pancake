@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style th:fragment="menuStyle">
+.menuFrag {
+	padding-right: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="menuFrag" th:fragment="menu">
+		<div>
+			<a href="/enigma_M3/rrSetting" class="btn">ローター/リフレクター設定</a>
+		</div>
+		<div>
+			<a href="/enigma_M3/pbSetting" class="btn">プラグボード設定</a>
+		</div>
+		<th:block th:if="${edm.isHasUKWD}">
+			<div>
+				<a href="/enigma_M3/ukwDSetting" class="btn">UKW-D設定</a>
+			</div>
+		</th:block>
+		<div>
+			<a href="/enigma_M3/modelChange" class="btn">モデル設定</a>
+		</div>
+	</div>
+</body>
+</html>

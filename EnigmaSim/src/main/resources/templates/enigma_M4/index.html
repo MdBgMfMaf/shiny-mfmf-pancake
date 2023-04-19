@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="/enigma_M4/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="/enigma_M4/layout/menu::menuStyle"></style>
+<style th:include="/enigma_M4/layout/subMenu::subMenuStyle"></style>
+</head>
+<body>
+	<header>
+		<div th:insert="/enigma_M4/layout/header::header"></div>
+	</header>
+	<div class="subMonitor" th:insert="/enigma_M4/layout/subMonitor::subMonitor"></div>
+	<div class="menu" th:insert="/enigma_M4/layout/menu::menu"></div>
+	<div class="main" th:insert="/enigma_M4/layout/mainMonitor::mainMonitor"></div>
+	<div class="subMenu" th:insert="/enigma_M4/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="/enigma_M4/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="/enigma_I/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="/enigma_I/layout/menu::menuStyle"></style>
+<style th:include="/enigma_I/layout/subMenu::subMenuStyle"></style>
+<style>
+input {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div th:insert="/enigma_I/layout/header::header"></div>
+	</header>
+	<div class="subMonitor"
+		th:insert="/enigma_I/layout/subMonitor::subMonitor"></div>
+	<div class="menu" th:insert="/enigma_I/layout/menu::menu"></div>
+	<div class="main">
+		<div class="titleLbl">
+			<span class="title">UKW-D設定</span>
+		</div>
+		<font color="red"><th:block class="error" th:text="${Msg}">
+			</th:block> </font>
+		<div class="ukwDTable">
+			<form method="post" action="/enigma_I/ukwDSetting"
+				th:object="${dSet}">
+				<table>
+					<tbody>
+						<tr>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet0Value}" name="ukwDSet0" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet1Value}" name="ukwDSet1" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet2Value}" name="ukwDSet2" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet3Value}" name="ukwDSet3" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet4Value}" name="ukwDSet4" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet5Value}" name="ukwDSet5" required
+								minlength="2" maxlength="2" size="4"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet6Value}" name="ukwDSet6" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet7Value}" name="ukwDSet7" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet8Value}" name="ukwDSet8" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet9Value}" name="ukwDSet9" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet10Value}" name="ukwDSet10" required
+								minlength="2" maxlength="2" size="4"></td>
+							<td colspan="2"><input type="text"
+								th:value="${selectedUKWDSet11Value}" name="ukwDSet11" required
+								minlength="2" maxlength="2" size="4"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="submit">
+					<input type="submit" class="submitBtn" value="変更を適用する" />
+				</div>
+			</form>
+		</div>
+		<div class="randomBtn">
+			<a href="/enigma_I/ukwDSetting/random" class="btn">ランダム決定</a>
+		</div>
+	</div>
+	<div class="subMenu" th:insert="/enigma_I/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="/enigma_I/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

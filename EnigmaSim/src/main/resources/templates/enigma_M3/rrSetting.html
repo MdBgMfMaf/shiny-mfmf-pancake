@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="enigma_M3/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="enigma_M3/layout/menu::menuStyle"></style>
+<style th:include="enigma_M3/layout/subMenu::subMenuStyle"></style>
+</head>
+<body>
+	<header>
+		<div th:insert="enigma_M3/layout/header::header"></div>
+	</header>
+	<div class="subMonitor" th:insert="enigma_M3/layout/subMonitor::subMonitor"></div>
+	<div class="menu" th:insert="enigma_M3/layout/menu::menu"></div>
+	<div class="main">
+		<div class="titleLbl">
+			<span class="title">ローター/リフレクター設定</span>
+		</div>
+		<div class="rrTable">
+			<form method="post" action="/enigma_M3/rrSetting">
+				<table>
+					<tbody>
+						<tr>
+							<th colspan="2">reflector</th>
+							<th></th>
+							<th>left</th>
+							<th>middle</th>
+							<th>right</th>
+						</tr>
+						<tr>
+							<td colspan="2"><select th:object="${rrTSet.refType}"
+								name="refType">
+									<option th:each="model,modelProp:${refTypeByName1}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedRefValue}"></option>
+							</select></td>
+							<td><select disabled th:object="${rrTSet.tRotorType}"
+								name="tRotorType">
+									<option th:each="model,modelProp:${thinRotorTypeByName}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedTRotorValue}"></option>
+							</select></td>
+							<td><select th:object="${rrTSet.lRotorType}"
+								name="lRotorType">
+									<option th:each="model,modelProp:${rotorTypeByNameForM}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedLRotorValue}"></option>
+							</select></td>
+							<td><select th:object="${rrTSet.mRotorType}"
+								name="mRotorType">
+									<option th:each="model,modelProp:${rotorTypeByNameForM}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedMRotorValue}"></option>
+							</select></td>
+							<td><select th:object="${rrTSet.rRotorType}"
+								name="rRotorType">
+									<option th:each="model,modelProp:${rotorTypeByNameForM}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedRRotorValue}"></option>
+							</select></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><select disabled th:object="${rrSet.tRotorStart}"
+								name="tRotorStart">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedTRotorStartValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.lRotorStart}"
+								name="lRotorStart">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedLRotorStartValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.mRotorStart}"
+								name="mRotorStart">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedMRotorStartValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.rRotorStart}"
+								name="rRotorStart">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedRRotorStartValue}"></option>
+							</select></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><select disabled th:object="${rrSet.tRotorRing}"
+								name="tRotorRing">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedTRotorRingValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.lRotorRing}"
+								name="lRotorRing">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedLRotorRingValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.mRotorRing}"
+								name="mRotorRing">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedMRotorRingValue}"></option>
+							</select></td>
+							<td><select th:object="${rrSet.rRotorRing}"
+								name="rRotorRing">
+									<option th:each="model,modelProp:${Alphabets}"
+										th:value="${modelProp.index}" th:text="${model}"
+										th:selected="${modelProp.index==selectedRRotorRingValue}"></option>
+							</select></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="submit">
+					<input type="submit" class="submitBtn" value="変更を適用する" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="subMenu" th:insert="enigma_M3/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="enigma_M3/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

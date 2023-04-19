@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="layout/subMonitor::subMonitorStyle"></style>
+<style th:include="layout/menu::menuStyle"></style>
+<style th:include="layout/subMenu::subMenuStyle"></style>
+<style>
+.subMonitor {
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div th:insert="/layout/header::header"></div>
+	</header>
+	<div class="subMonitor">
+		<h4>start page</h4>
+	</div>
+	<div class="menu"></div>
+	<div class="main"></div>
+	<div class="subMenu"></div>
+	<footer>
+		<div th:insert="/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

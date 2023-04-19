@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<style th:fragment="subMonitorStyle">
+table {
+	border: 1px solid darkcyan;
+	border-spacing: 5px;
+	border-radius: 6px;
+	border-collapse: separate;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-right: 5px;
+}
+
+.setTh {
+	width: 30%;
+}
+
+td {
+	height: 30px;
+}
+
+.leftEdge {
+	padding-left: 10px;
+}
+</style>
+</head>
+<body>
+	<div th:fragment="subMonitor">
+		<div class="titleLbl">
+			<span class="title">現在の設定</span>
+		</div>
+		<table>
+			<tbody>
+				<th:block th:inline="text">
+					<tr>
+						<th>モデル</th>
+						<td colspan="6">Enigma M3</td>
+					</tr>
+				</th:block>
+				<th:block th:inline="text" th:object="${rrTSet}">
+					<tr>
+						<th class="setTh">ローター設定</th>
+						<td class="leftEdge" colspan="2">[[${edm.getSingleRefSetByName(rrTSet.refType)}]]</td>
+						<td>[[${edm.getSingleRotorTypeByName(rrTSet.lRotorType)}]]</td>
+						<td>[[${edm.getSingleRotorTypeByName(rrTSet.mRotorType)}]]</td>
+						<td>[[${edm.getSingleRotorTypeByName(rrTSet.rRotorType)}]]</td>
+					</tr>
+				</th:block>
+				<th:block th:inline="text" th:object="${rrSet}">
+					<tr>
+						<th class="setTh">初期位置設定</th>
+						<td class="leftEdge" colspan="2"></td>
+						<td>[[${edm.getAlphabets(rrSet.lRotorStart)}]]</td>
+						<td>[[${edm.getAlphabets(rrSet.mRotorStart)}]]</td>
+						<td>[[${edm.getAlphabets(rrSet.rRotorStart)}]]</td>
+					</tr>
+					<tr>
+						<th class="setTh">リング設定</th>
+						<td class="leftEdge" colspan="2"></td>
+						<td>[[${edm.getAlphabets(rrSet.lRotorRing)}]]</td>
+						<td>[[${edm.getAlphabets(rrSet.mRotorRing)}]]</td>
+						<td>[[${edm.getAlphabets(rrSet.rRotorRing)}]]</td>
+					</tr>
+				</th:block>
+				<th:block th:inline="text" th:object="${pbSet}">
+					<tr>
+						<th:block th:if="${edm.isPbValid}">
+							<th class="setTh" rowspan="2">プラグボード設定</th>
+						</th:block>
+						<th:block th:unless="${edm.isPbValid}">
+							<th class="setTh" rowspan="2">プラグボード設定</th>
+						</th:block>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet0)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet1)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet2)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet3)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet4)}]]</td>
+					</tr>
+					<tr>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet5)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet6)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet7)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet8)}]]</td>
+						<td>[[${#strings.toUpperCase(pbSet.pbSet9)}]]</td>
+					</tr>
+				</th:block>
+				</th:block>
+				<th:block th:if="${edm.isHasUKWD}">
+					<th:block th:inline="text" th:object="${dSet}">
+						<tr>
+							<th:block th:if="${edm.isUKWDValid}">
+								<th class="setTh" rowspan="2">UKW-D設定</th>
+							</th:block>
+							<th:block th:unless="${edm.isUKWDValid}">
+								<th class="setTh" rowspan="2"><font color="red">×UKW-D設定</font></th>
+							</th:block>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet0)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet1)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet2)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet3)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet4)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet5)}]]</td>
+						</tr>
+						<tr>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet6)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet7)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet8)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet9)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet10)}]]</td>
+							<td>[[${#strings.toUpperCase(dSet.ukwDSet11)}]]</td>
+						</tr>
+					</th:block>
+				</th:block>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

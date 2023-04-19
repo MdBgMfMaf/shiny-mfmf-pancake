@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>instruction</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="/enigma_M4/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="/enigma_M4/layout/menu::menuStyle"></style>
+<style th:include="/enigma_M4/layout/subMenu::subMenuStyle"></style>
+<style>
+.subMonitor {
+	text-align: left;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div th:insert="/enigma_M4/layout/header::header"></div>
+	</header>
+	<div class="subMonitor">
+		<h3>概要</h3>
+		<p>1:実在の暗号機「エニグマ」を元にした暗号化/復号化アプリです。</p>
+		<br>
+		<h3>使用方法</h3>
+		<p>1:下真ん中の「実行」ボタンを押すと、上のテキストボックスに入力された文字列が暗号化され、下のテキストボックスに出力されます。</p>
+		<p>2:暗号化/復号化が可能な文字は半角アルファベット26文字のみです。小文字はすべて大文字に変換されます。
+		<p>3:エニグマの設定が暗号化実行時の設定とすべて同じであれば、
+			上のテキストボックスに暗号化文字列を入力して「実行」することでで元の文字列を下の テキストボックスに出力することが出来ます。</p>
+		<p>4:暗号化/復号化に関連する設定は以下の通りです。</p>
+		<br>
+		<p>・ローターの種類設定（左、真ん中、右)</p>
+		<p>・ローターの初期位置設定（左、真ん中、右)</p>
+		<p>・ローターのリング設定（左、真ん中、右）</p>
+		<p>・リフレクターの種類設定</p>
+		<p>・プラグボードの配線設定</p>
+		<br>
+		<p>プラグボードには0～10組のアルファベットのペアを設定することが出来ます。重複する文字の設定は不可です。</p>
+		<p>また、リフレクターにUKW-Dを使用する場合は、</p>
+		<br>
+		<p>・UKW-Dの配線設定</p>
+		<br>
+		<p>が加わります。UKW-Dを選択する場合、この設定は必須です。
+			JとYを除いた残りの24文字で重複しない12組のアルファベットのペアを設定する必要があります。
+		<p>また、薄いローターとリフレクターを使用する場合は、</p>
+		<br>
+		<p>・薄いローターの種類設定</p>
+		<p>・薄いローターの初期位置設定</p>
+		<p>・薄いローターのリング設定</p>
+		<p>・薄いリフレクターの種類設定</p>
+		<br>
+		<p>が加わります。薄いローター/リフレクターを使用する場合は必ず薄いリフレクター/ローターを使用せねばなりません。</p>
+		<p>5:プラグボードとUKW-Dの配線設定、特に後者が面倒だという人は、自動ランダム設定ボタンがあるのでその機能を活用してください。</p>
+		<p>6:上に書いたいくつかのルールや制限が守られていない場合、該当する設定の欄が赤くなります。
+			不正でない設定に変更するまでは「実行」することは出来ません。</p>
+		<p>7:三つのモデルのエニグマが選択でき、使用出来るローターやリフレクターが変わります。
+			モデルが違えど、設定がすべて同じであれば、暗号化/復号化は可能です。</p>
+		<p>8:現在の設定をcsvファイルとして保存し、読込むことが出来ます。</p>
+		<h3>モデル解説</h3>
+		<p>Enigma I:Enigma Iはドイツ国防軍のために1932年頃に開発、導入されたモデルです。 製品として市場に出ていたEnigma
+			Kが元になっており、中でも新機能「プラグボード」によって換字パターンが
+			爆発的に増加しました。45年の独敗戦までに出た他のモデルすべてと互換性を持つこの Enigma
+			Iは、「最も典型的なエニグマ」であると言うことが出来ます。</p>
+		<p>Enigma M3:Enigma M3は1930年代末に導入された独海軍専用エニグマです。これに先立ってM1、M2も存在しました。
+			Iよりも使えるローターの数が多く、イギリスの暗号解読チームを最も苦しめたエニグマがこのM3です。</p>
+		<p>Enigma M4:Enigma M4は1940年代初めに導入が開始された4番目のMシリーズエニグマです。
+			このモデルのみ、薄いローター/リフレクターという形で4つ目のローターを持つことが出来ます。</p>
+		<br>
+		<h3>その他</h3>
+		<p>1:正しく変換するためには暗号化時と復号化時に設定が一致している必要があると書きましたが、
+			厳密には、一部のパーツは種類が違っても設定によっては同じ換字表を持つことがあります。</p>
+		<p>2:エニグマ内部のメカニズムの詳細については以下を参照してください。</p>
+		<a href="https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%8B%E3%82%B0%E3%83%9E_(%E6%9A%97%E5%8F%B7%E6%A9%9F)">日本語版Wiki</a>
+		<p>3:英語版Wikiの方が内容が充実しています。</p>
+		<p><a href="https://en.wikipedia.org/wiki/Enigma_machine">英語版Wiki</a></p>
+		<p><a href="https://en.wikipedia.org/wiki/Enigma_rotor_details">ローターのメカニズムについての英語版Wiki</a><p>
+		<p>4:実機の仕様や内部の機構、各パーツの細かい仕様については以下のページを参照しました</p>
+		<a href="https://www.cryptomuseum.com/crypto/enigma/index.htm">CryptoMuseum:Enigma cipher machines</a>
+	</div>
+	<div class="menu" th:insert="/enigma_M4/layout/menu::menu"></div>
+	<div class="subMenu" th:insert="/enigma_M4/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="/enigma_M4/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>

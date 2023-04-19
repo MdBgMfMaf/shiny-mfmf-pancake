@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>subMenu</title>
+<style th:fragment="subMenuStyle">
+.subMenuFrag {
+	padding-right: 10px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-evenly;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<div class="subMenuFrag" th:fragment="subMenu">
+		<div>
+			<form method="get" th:action="@{/enigma_M4/instruction}">
+				<input type="submit" value="説明書"
+					class="submitBtn" />
+			</form>
+		</div>
+		<div>
+			<form method="get" th:action="@{/enigmaSetting.csv}">
+				<input type="submit" name="download_file" value="現在の設定を保存"
+					class="submitBtn" />
+			</form>
+		</div>
+		<div>
+			<form class="submitForm" method="post" action="/"
+				enctype="multipart/form-data">
+				<input type="file" name="file"> <input type="submit"
+					name="upload_file" value="保存した設定を読込" class="submitBtn">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

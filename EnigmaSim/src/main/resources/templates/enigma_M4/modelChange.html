@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EnigmaSim</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style th:include="enigma_M4/layout/subMonitor::subMonitorStyle"></style>
+<style th:include="enigma_M4/layout/menu::menuStyle"></style>
+<style th:include="enigma_M4/layout/subMenu::subMenuStyle"></style>
+<style>
+.submit {
+	margin: 10px;
+}
+
+.back {
+	margin-top: 100px;
+}
+</style>
+</head>
+<body>
+	<header>
+		<div th:insert="enigma_M4/layout/header::header"></div>
+	</header>
+	<div class="subMonitor" th:insert="enigma_M4/layout/subMonitor::subMonitor"></div>
+	<div class="menu" th:insert="enigma_M4/layout/menu::menu"></div>
+	<div class="main">
+		<div class="titleLbl">
+			<span class="title">エニグマモデル設定</span>
+		</div>
+		<form method="post" action="/enigma_M4/modelChange" th:object="${inputValue}">
+			<select name="enigmaType">
+				<option value="0">Enigma I</option>
+				<option value="1">Enigma M3</option>
+				<option value="2">Enigma M4</option>
+			</select>
+			<div class="submit">
+				<input type="submit" class="submitBtn" value="モデルを変更する" />
+			</div>
+		</form>
+	</div>
+	<div class="subMenu" th:insert="enigma_M4/layout/subMenu::subMenu"></div>
+	<footer>
+		<div th:insert="enigma_M4/layout/footer::footer"></div>
+	</footer>
+</body>
+</html>
